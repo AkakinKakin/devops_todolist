@@ -18,6 +18,9 @@ RUN pip install -r requirements.txt
 
 RUN pip install --upgrade pip
 
+# Run database migrations
+RUN python3 manage.py migrate
+
 EXPOSE 8080
 
 ENTRYPOINT [ "python3", "manage.py", "runserver", "0.0.0.0:8080"]
